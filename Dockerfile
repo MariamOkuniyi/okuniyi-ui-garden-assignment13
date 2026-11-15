@@ -1,30 +1,29 @@
+# Stage 1: Build the React application
+FROM node:24-alpine AS build
 
-# Stage 1: Build the React application using Node.js.
-FROM node:20-alpine AS build
+# Required Assignment 13 working directory
+WORKDIR /okuniyi_mariam_ui_garden_build_checks
 
-# Set the working directory inside the container.
-WORKDIR /app
+# Copy dependency manifests
+COPY package.json package-lock.json ./
 
-# Copy package files first.
-COPY package*.json ./
-
-# Install the project dependencies.
+# Install dependencies
 RUN npm ci
 
-# Copy the rest of the React project.
+# Copy application source code
 COPY . .
 
-# Build the React application for production.
+# Create the production React build
 RUN npm run build
 
-# Stage 2: Serve the production build using Nginx.
+# Stage 2: Serve the production build with Nginx
 FROM nginx:alpine
 
-# Copy the React production files into Nginx.
-COPY --from=build /app/build /usr/share/nginx/html
+# Copy the compiled application into Nginx
+COPY --from=build /okuniyi_mariam_ui_garden_build_checks/build /usr/share/nginx/html
 
-# Nginx listens on port 80 inside the container.
+# Nginx listens on port 80 inside the container
 EXPOSE 80
 
-# Start the Nginx server.
+# Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
