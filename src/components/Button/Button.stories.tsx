@@ -1,40 +1,39 @@
-
-import type { Meta, StoryObj } from "storybook/react";
-import { Button } from "./Button";
+import type { Meta, StoryObj } from 'storybook/react';
+import { Button } from './Button';
 
 // Configure how our Button appears in Storybook.
 const meta = {
-  title: "Components/Button",
+  title: 'Components/Button',
   component: Button,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
 
   // Controls allow us to change properties in Storybook.
   argTypes: {
     children: {
-      control: "text",
-      description: "Text displayed inside the button",
+      control: 'text',
+      description: 'Text displayed inside the button',
     },
     backgroundColor: {
-      control: "color",
-      description: "Button background colour",
+      control: 'color',
+      description: 'Button background colour',
     },
     textColor: {
-      control: "color",
-      description: "Button text colour",
+      control: 'color',
+      description: 'Button text colour',
     },
     disabled: {
-      control: "boolean",
-      description: "Enable or disable the button",
+      control: 'boolean',
+      description: 'Enable or disable the button',
     },
   },
 
   // Default properties for the component.
   args: {
-    children: "Click Me",
-    backgroundColor: "#2563eb",
-    textColor: "#ffffff",
+    children: 'Click Me',
+    backgroundColor: '#2563eb',
+    textColor: '#ffffff',
     disabled: false,
   },
 } satisfies Meta<typeof Button>;
@@ -46,7 +45,7 @@ type Story = StoryObj<typeof meta>;
 // Story 1: Normal button.
 export const Default: Story = {
   args: {
-    children: "Click Me",
+    children: 'Click Me',
     disabled: false,
   },
 };
@@ -54,7 +53,7 @@ export const Default: Story = {
 // Story 2: Disabled button.
 export const Disabled: Story = {
   args: {
-    children: "Disabled Button",
+    children: 'Disabled Button',
     disabled: true,
   },
 };
@@ -62,9 +61,9 @@ export const Disabled: Story = {
 // Story 3: Button with custom colours.
 export const CustomColors: Story = {
   args: {
-    children: "Custom Button",
-    backgroundColor: "#16a34a",
-    textColor: "#ffffff",
+    children: 'Custom Button',
+    backgroundColor: '#16a34a',
+    textColor: '#ffffff',
     disabled: false,
   },
 };

@@ -1,6 +1,5 @@
-
-import styled from "styled-components";
-import type { ButtonProps } from "./Button.types";
+import styled from 'styled-components';
+import type { ButtonProps } from './Button.types';
 
 // This styled button uses CSS to control its appearance.
 // It changes colour and cursor style when disabled.
@@ -9,10 +8,9 @@ const StyledButton = styled.button<{
   $textColor?: string;
 }>`
   /* Default button appearance */
-  background-color: ${({ $backgroundColor }) =>
-    $backgroundColor || "#2563eb"};
+  background-color: ${({ $backgroundColor }) => $backgroundColor || '#2563eb'};
 
-  color: ${({ $textColor }) => $textColor || "#ffffff"};
+  color: ${({ $textColor }) => $textColor || '#ffffff'};
 
   padding: 12px 24px;
   border: none;
@@ -40,7 +38,7 @@ const StyledButton = styled.button<{
 
 // This is our reusable React Button component.
 export const Button = ({
-  children = "Click Me",
+  children = 'Click Me',
   backgroundColor,
   textColor,
   disabled = false,

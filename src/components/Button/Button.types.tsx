@@ -1,10 +1,7 @@
-
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
 // This interface defines the properties our Button can receive.
-export interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
-
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   // The text or content displayed inside the button.
   children?: ReactNode;
 
